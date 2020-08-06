@@ -1,0 +1,35 @@
+ <v-toolbar flat color="transparent" tag="div" height="90" dark class="hidden-sm-and-down"
+        style="position: absolute;top:0;right:0;left:0;z-index:999;padding:0 110px 0 90px">
+          <a href="{#APP['ROOT']#}">
+          <v-img src="{#APP['ROOT']#}/app/assets/img/logo-white.png" height="80" max-width="150" contain ></v-img>
+          </a>
+          <v-spacer></v-spacer>
+          {loop="$modules"}
+          {if="!is_null($value.items)"}
+          <v-menu offset-y  open-on-hover>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          v-bind="attrs"
+          href="{#APP['ROOT']#}/{$value.url}" 
+          v-on="on"
+          class=" font-weight-bold" 
+          small text 
+        >
+          {$value.label}
+        </v-btn>
+      </template>
+      <v-list>
+    {loop="$value.items"}
+    <v-list-item href="{#APP['ROOT']#}/{$value.url}" >
+          <v-list-item-title >{$value.label}</v-list-item-title>
+        </v-list-item>
+    {/loop}
+      </v-list>
+    </v-menu>
+          {else}
+          <v-btn class=" font-weight-bold" 
+          small text href="{#APP['ROOT']#}/{$value.url}">{$value.label}</v-btn>
+          {/if}
+          {/loop}
+<v-btn color="secondary" small rounded href="{#APP['PAYPAL']#}" target="_blank">{#DONATE_NOW#}</v-btn>
+        </v-toolbar>

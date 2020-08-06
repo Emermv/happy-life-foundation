@@ -1,0 +1,37 @@
+<template>
+<div>
+ {include="../templates/toolbar"}
+ <v-row class="justify-center">
+   <v-col cols="11" xs="11" sm="11" md="6" lg="6" xl="4">
+    <v-row>
+    <v-col cols="12">
+     <h2>{#DONATION_TITLE#}</h2>
+     <div  class="v-responsive primary mb-6 mt-4  happy-divider ">
+     <v-divider ></v-divider>
+     </div>
+     <p>{#DONATION_DESCRIPTION#}</p>
+     <h4>{#DONATION_ACCOUNTS#}</h4>
+     <p class="mt-4">{#BCP1#} <code>19318962658098</code> </p>
+     <p>{#BCP2#} <code>19433467485138</code></p>
+    </v-col>
+       <v-col cols="12"></v-col>
+
+      <v-col cols="12" xs="12" sm="12" md="6" lg="6">
+      <v-btn color="primary" block rounded href="{#APP['PAYPAL']}" target="_blank">{#DONATE_NOW#}</v-btn>
+      </v-col>
+      </v-row>
+   </v-form>
+   </v-col>
+    </v-row>
+   </v-col>
+
+ </v-row>
+
+</div>
+</template>
+
+<script>
+module.exports={
+
+}
+</script>

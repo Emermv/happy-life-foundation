@@ -1,0 +1,142 @@
+<template>
+      <div>
+       {include="../templates/toolbar-transparent"}
+  <v-carousel hide-delimiter-background height="550" cycle>
+    <v-carousel-item
+      v-for="(item,i) in items"
+      :key="i"
+      :src="item.src"
+      reverse-transition="fade-transition"
+      transition="fade-transition"
+    >
+   <v-img  :src="item.background" contain height="500" width="500" class="home-section">
+    <div style="width:400px;height: 400px;margin-left:30px;margin-top:50px" class="d-flex align-center justify-center" >
+    <v-row  class="justify-center">
+    <v-col cols="12">
+    <h2 class="white--text r-title" v-html="item.title"></h2>
+    <div  class="v-responsive white mt-2 mb-2  happy-divider ">
+     <v-divider ></v-divider>
+     </div>
+     <p class="hidden-sm-and-down">{{item.description}}</p>
+    </v-col>
+    <v-col cols="12" class="home-section-buttons">
+    <v-btn v-for="btn in item.buttons" :href="btn.href" :color="btn.color" rounded :outlined="btn.outlined" class="ml-2" 
+    v-html="btn.text" @click.stop="run(btn.action)">
+    
+    </v-btn>
+ 
+    </v-col>
+    
+    </v-row>
+    </div>
+   </v-img>
+    </v-carousel-item>
+  </v-carousel>
+  <v-container >
+     <v-row class="justify-center">
+      <v-col cols="12" xs="12" sm="12" md="10" lg="10" xl="8">
+      <v-row class="justify-space-between">
+     <v-col cols="12" sm="12" md="8" lg="8" xl="8">
+ <h1 class="r-title" ref="scroll_target">{#TOGETHER#} <span class="belmont">{#HEARTS#}</span></h1>
+
+<div  class="v-responsive primary mb-6  happy-divider ">
+     <v-divider ></v-divider>
+     </div>
+
+      <p>{#TOGETHER_DESCRIPTION#}</p>
+     </v-col>
+     <v-col cols="12" sm="12" md="4" lg="4" xl="4">
+       <v-img src="{#APP['ROOT']#}/app/assets/img/manos.png"></v-img>
+     </v-col>
+
+     </v-row>
+      </v-col>
+    <v-col cols="12" sm="12" md="6" lg="6" xl="6">
+     <h1 class="r-title">{#AXIS_ACTION#}</h1>
+     <div  class="v-responsive primary mb-6 mt-4 happy-divider mx-auto" style="position: relative;left:-50px">
+     <v-divider ></v-divider>
+     </div>
+     <p>{#AXIS_ACTION_DESCRIPTION#}</p>
+     </v-col>
+     <v-col cols="12" sm="12" md="12">
+     <v-row no-gutters class="justify-center">
+     <v-col cols="12" sm="12" md="6" lg="6" xl="6">
+     <v-row dense class="justify-center">
+
+      <v-col cols="12" sm="12" md="6" lg="6" xl="6" class="text-center">
+         <v-img src="{#APP['ROOT']#}/app/assets/img/02.png" height="250" contain></v-img>
+         <v-btn color="secondary" rounded class="mt-5">{#VULNERABLE_MINORS#}</v-btn>
+      </v-col>
+      <v-col cols="12" sm="12" md="6" lg="6" xl="6" class="text-center">
+       <v-img src="{#APP['ROOT']#}/app/assets/img/03.png" height="250" contain></v-img>
+       <v-btn color="secondary" rounded class="mt-5">{#ABANDONED_ANIMALS#}</v-btn>
+      </v-col>
+          <v-col cols="12" sm="12" md="6" lg="6" xl="6" class="text-center">
+       <v-img src="{#APP['ROOT']#}/app/assets/img/04.png" height="250" contain></v-img>
+       <v-btn color="secondary" rounded class="mt-5">{#OLDER_ADULTS#}</v-btn>
+      </v-col>
+     </v-row>
+     </v-col>
+     </v-row>
+     </v-col>
+     
+      <v-col cols="12" sm="12" md="6" lg="6" xl="6">
+       <h1 class="r-title">{#GALLERY#}</h1>
+       <div  class="v-responsive primary mb-6  mt-4  mx-auto happy-divider " style="position: relative;left:-50px">
+     <v-divider ></v-divider>
+     </div>
+       <p>{#GALLERY_DESCRIPTION#}</p>
+      </v-col>
+
+      <v-col cols="12">
+        <v-row no-gutters>
+         <v-col cols="12" sm="12" md="4" lg="4" xl="4">
+      <v-img src="{#APP['ROOT']#}/app/assets/img/1.png"></v-img>
+      </v-col>
+       <v-col cols="12" sm="12" md="4" lg="4" xl="4">
+      <v-img src="{#APP['ROOT']#}/app/assets/img/2.png"></v-img>
+      </v-col>
+       <v-col cols="12" sm="12" md="4" lg="4" xl="4">
+      <v-img src="{#APP['ROOT']#}/app/assets/img/3.png"></v-img>
+      </v-col>
+ 
+       <v-col cols="12" sm="12" md="4" lg="4" xl="4">
+      <v-img src="{#APP['ROOT']#}/app/assets/img/4.png"></v-img>
+      </v-col>
+       <v-col cols="12" sm="12" md="4" lg="4" xl="4">
+      <v-img src="{#APP['ROOT']#}/app/assets/img/5.png"></v-img>
+      </v-col>
+       <v-col cols="12" sm="12" md="4" lg="4" xl="4">
+      <v-img src="{#APP['ROOT']#}/app/assets/img/6.png"></v-img>
+      </v-col>
+        </v-row>
+      </v-col>
+     
+     </v-row>
+  </v-container>
+      </div>
+</template>
+
+<script>
+  module.exports=  {
+    data () {
+      return {
+        items:{$slider|json_encode}
+      }
+    },
+    methods:{
+      run(action){
+        this[action]();
+      },
+      fb(){
+
+      },
+      donation(){
+      location.href="{#APP['ROOT']#}/donation";
+      },
+      scroll(){
+        this.$refs.scroll_target.scrollIntoView();
+      }
+    }
+  }
+</script>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#584194">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+      <meta name="description" content="{$title}">
+      <meta name="og:title" property="og:title" content="{$title}">
+      <meta name="robots" content="index, follow">
+
+  <title>{$title}</title>
+  <link rel="icon" href="{#APP['ROOT']#}/favicon.ico"/>
+  <style> [v-cloak] { display: none; } </style>
+   <link href="{#APP['ROOT']#}/app/assets/css/vuetify.min.css" rel="stylesheet">
+
+    <link href="{#APP['ROOT']#}/app/assets/css/app.css" rel="stylesheet">
+    {loop="$styles"}
+    <link href="{#APP['ROOT']#}{$value}" rel="stylesheet">
+    {/loop}
+
+    <link rel="manifest" href="{#APP['ROOT']#}/manifest.json">
+</head>
+<body >
+  <div id="app" v-cloak >
+  
+    <v-app id="happy">
+    <v-bottom-sheet v-model="sheet" >
+      
+      <v-list color="primary" dark>
+      <v-list-item href="{#APP['ROOT']#}" class="text-center">
+          <v-img src="{#APP['ROOT']#}/app/assets/img/logo-white.png" height="100" contain></v-img>
+        </v-list-item>
+        {loop="$modules"}
+      
+      {if="!empty($value.items)"}
+        <v-list-group>
+        <template v-slot:activator>
+          <v-list-item-title class="white--text">{$value.label}</v-list-item-title>
+        </template>
+
+       {loop="$value.items"}
+         <v-list-item href="{#APP['ROOT']#}/{$value.url}" >
+          <v-list-item-title>{$value.label}</v-list-item-title>
+        </v-list-item>
+       {/loop}
+      </v-list-group>
+      {else}
+        <v-list-item href="{#APP['ROOT']#}/{$value.url}" >
+          <v-list-item-title>{$value.label}</v-list-item-title>
+        </v-list-item>
+      {/if}
+      <v-divider></v-divider>
+        {/loop}
+        <v-list-item >
+
+        <v-list-item-title>
+            <v-btn color="secondary" rounded block class="mt-4" href="{#APP['PAYPAL']#}" target="_blank">{#DONATE_NOW#}</v-btn>
+        </v-list-item-title>
+        </v-list-item>
+        <v-list-item class="text-center" >
+
+        <v-list-item-title>
+                  <a href="mailto:donaciones@happylife-foundation.org" class="white--text text-decoration-none ">
+<span >donaciones@happylife-foundation.org</span>
+</a>
+        </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-bottom-sheet>
+
+   <div class="d-flex   primary white--text pl-5 pr-5 happy-toolbar">
+       <v-row dense no-gutters class="justify-center align-center" >
+          <v-col cols="2" xs="2" sm="2" md="5" lg="5" xl="5" >
+             <div class="hidden-sm-and-down  align-center " style="display: flex">
+            
+          <a href="mailto:donaciones@happylife-foundation.org" class="white--text text-decoration-none ">
+<span class="ml-2 "> <v-icon class="white--text">email</v-icon> donaciones@happylife-foundation.org</span>
+</a>
+          
+    
+             </div>
+              <v-btn icon class="hidden-sm-and-up white--text" @click="sheet=true"><v-icon>menu</v-icon></v-btn>
+          </v-col>
+        
+          <v-col cols="10" xs="10" sm="10" md="5" lg="5" xl="5">
+          
+           <div class="d-flex align-center justify-end" style="height: 100%;">
+           <a href="https://www.facebook.com/Happy-Life-Foundation-100591411426252/" target="_blank" class="white--text mt-1" >
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" />
+</svg>
+      </a>
+      <a href="https://www.instagram.com/happylifefoundationorg/" target="_blank" class="white--text ml-2 mt-1">
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+</svg>
+      </a>
+
+<a href="https://www.youtube.com/channel/UC-bYT5IEBddhPS3xWdegfjw"  target="_blank" class="white--text ml-2 mt-1">
+<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z" />
+</svg>
+</a>
+ <v-menu offset-y class="skiptranslate">
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+        
+          dark
+          text
+          v-bind="attrs"
+          class="text-capitalize"
+          v-on="on"
+        >
+          {$locale.label} <v-icon>expand_more</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+      {$str_action=''}
+      {if="$action!=='index'"}
+      {$str_action=$action}
+      {/if}
+      {$slash=''}
+      {if="$str_action!='' || !is_null($str_action)"}
+      {$slash='/'}
+      {/if}
+       {loop="$locales"}
+          <v-list-item href="{#APP['ROOT']#}/{$module}{$slash}{$str_action}?lang={$value.code}">
+          <v-list-item-title>{$value.label}</v-list-item-title>
+        </v-list-item>
+       {/loop}
+      </v-list>
+    </v-menu>      
+           </div>
+          </v-col>
+       </v-row>
+   
+   </div>
+
+   <v-main class="grey lighten-3">
+   <{$component}/>
+   </v-main>
+<v-footer padless color="secondary" v-ripple>
+    <v-col
+      class="text-center white--text"
+      cols="12"
+    >
+     ©2020 Happy Life Foundation All rights.
+    </v-col>
+  </v-footer>
+    </v-app>
+  </div>
+  <div id="google_translate_element2"></div>
+<template  id="template" component="{$component}">
+  {$content}
+</template>
+
+    <script src="{#APP['ROOT']#}/app/assets/js/vue.min.js" ></script>
+   <script src="{#APP['ROOT']#}/app/assets/js/vuetify.min.js"></script>
+
+    {loop="$scripts"}
+     <script src="{#APP['ROOT']#}{$value}" ></script>
+    {/loop}
+<script src="{#APP['ROOT']#}/app/assets/js/app.js"></script>
+
+
+
+<!--script type="text/javascript">
+function googleTranslateElementInit2() {new google.translate.TranslateElement({pageLanguage: 'es',autoDisplay: false}, 'google_translate_element2');}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2"></script-->
+</body>
+</html>

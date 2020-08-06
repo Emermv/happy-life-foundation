@@ -1,0 +1,65 @@
+<template>
+<div>
+{include="../templates/toolbar"}
+
+<v-row class="justify-center">
+<v-col cols="11" xs="11" sm="12" md="9" lg="9" xl="9">
+<v-row>
+<v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" >
+<v-img src="{#APP['ROOT']#}/app/assets/img/union.png"></v-img>
+</v-col>
+<v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" >
+  <v-row>
+  <v-col cols="12" v-ripple>
+   <h2>{#MISION#}</h2>
+ 
+<div  class="v-responsive primary mb-4  happy-divider ">
+     <v-divider ></v-divider>
+     </div>
+
+   <p>
+  {#MISION_DESCRIPTION#}
+   </p>
+  </v-col>
+   <v-col cols="12" v-ripple>
+   <h2>{#VISION#}</h2>
+   <div  class="v-responsive primary mb-4  happy-divider ">
+     <v-divider ></v-divider>
+     </div>
+   <p>
+{#VISION_DESCRIPTION#}
+   </p>
+  </v-col>
+     <v-col cols="12" v-ripple>
+   <h2>{#VALUES#}</h2>
+   <div  class="v-responsive primary mb-4  happy-divider ">
+     <v-divider ></v-divider>
+     </div>
+   <p>
+{#VALUES_DESCRIPTION#}
+   </p>
+  </v-col>
+  </v-row>
+</v-col>
+<v-col cols="12"  class="text-center">
+ <h2>{#TEAM}</h2>
+ <div  class="v-responsive primary mb-4  mx-auto happy-divider " style="position: relative;left:-75px">
+     <v-divider ></v-divider>
+     </div>
+</v-col>
+<v-col cols="12" >
+<v-row class="justify-center">
+{loop="$team"}
+<v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4" class="text-center" v-ripple>
+<v-img src="{#APP['ROOT']#}/app/assets/img/team/{$counter+1}.png"></v-img>
+<h5 class="mt-5">{$value.name}</h5>
+<p>{$value.position}</p>
+</v-col>
+{/loop}
+</v-row>
+</v-col>
+</v-row>
+</v-col>
+</v-row>
+</div>
+</template>

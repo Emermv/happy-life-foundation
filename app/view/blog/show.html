@@ -1,0 +1,15 @@
+<template>
+<div>
+{include="../templates/toolbar"}
+<v-row class="justify-center">
+<v-col cols="11" md="10" xl="10">
+{if="$id==1"}
+{include="1"}
+{else}
+{include="2"}
+{/if}
+</v-col>
+</v-row>
+
+</div>
+</template>

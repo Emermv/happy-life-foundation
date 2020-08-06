@@ -1,0 +1,21 @@
+<template>
+<div>
+{include="../templates/toolbar"}
+<v-row class="justify-center">
+<v-col cols="11" xs="11" sm="11" md="6" lg="6" xl="6">
+
+<v-row>
+{loop="$posts"}
+<v-col cols="12" md="6" lg="6" xl="6" >
+<v-img src="{$value.src}"></v-img>
+<h3 class="mb-2 mt-2">{$value.title}</h3>
+<p class="mt-3">{$value.description}</p>
+<v-btn color="primary"rounded small href="{#APP['ROOT']#}/blog/show/{$value.id}">{#READ_MORE#}</v-btn>
+</v-col>
+{/loop}
+</v-row>
+
+</v-col>
+</v-row>
+</div>
+</template>

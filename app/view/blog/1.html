@@ -1,0 +1,18 @@
+<v-row>
+<v-col cols="12">
+<v-img src="https://happylife-foundation.org/old/wp-content/uploads/2020/01/WhatsApp-Image-2019-12-30-at-10.01.23-PM-1-1024x1024.jpeg"></v-img>
+</v-col>
+<v-col cols="12" class="text-center">
+<h2>{#TRY_TITLE#}</h2>
+</v-col>
+<v-col cols="12" class="text-center">
+<p>{#BLOG1_TEXT#}</p>
+<h4>{#TOGETHER#} {#HEARTS|strtoupper#}</h4>
+</v-col>
+
+{loop="$images"}
+<v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
+<v-img src="{$value}"></v-img>
+</v-col>
+{/loop}
+</v-row>
