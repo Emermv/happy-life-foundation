@@ -16,8 +16,8 @@ class Contact extends core\Service{
  
 $mail->Host = 'smtp.gmail.com';  
 $mail->SMTPAuth = true;                              
-$mail->Username =  'gofacturas.mail@gmail.com'; 
-$mail->Password = 'spumnqawgiucbtck'; 
+$mail->Username =  'email@gmail.com'; 
+$mail->Password = 'devpassword'; 
 $mail->Port = 465;	
 $mail->SMTPDebug = 0;
 $mail->SMTPSecure ='ssl';
